@@ -1,10 +1,93 @@
-body {background-color: black;}
-h1 {color:white;}
-h2 {color:white;}
-h3 {color:white;}
-p {color:white;}
 
 
 
-@import compass // n is number of stars required @function multiple-box-shadow ($n) $value: '#{random(2000)}px #{random(2000)}px #FFF' @for $i from 2 through $n $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF' @return unquote($value) $shadows-small: multiple-box-shadow(700) $shadows-medium: multiple-box-shadow(200) $shadows-big: multiple-box-shadow(100) html height: 100% background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) overflow: hidden #stars width: 1px height: 1px background: transparent box-shadow: $shadows-small animation : animStar 50s linear infinite &:after content: " " position: absolute top: 2000px width: 1px height: 1px background: transparent box-shadow: $shadows-small #stars2 width: 2px height: 2px background: transparent box-shadow: $shadows-medium animation : animStar 100s linear infinite &:after content: " " position: absolute top: 2000px width: 2px height: 2px background: transparent box-shadow: $shadows-medium #stars3 width: 3px height: 3px background: transparent box-shadow: $shadows-big animation : animStar 150s linear infinite &:after content: " " position: absolute top: 2000px width: 3px height: 3px background: transparent box-shadow: $shadows-big #title position: absolute top: 50% left: 0 right: 0 color: #FFF text-align: center font-family: 'lato',sans-serif font-weight: 300 font-size: 50px letter-spacing: 10px margin-top: -60px padding-left: 10px span background: -webkit-linear-gradient(white, #38495a) -webkit-background-clip: text -webkit-text-fill-color: transparent @keyframes animStar from transform: translateY(0px) to transform: translateY(-2000px)
-    
+@import url(https://fonts.googleapis.com/css?family=Orbitron:700);
+
+/* Stars 
+------------------------------------- */
+
+#space, .stars {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.stars {
+    background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)), radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)), radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)), radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: zoom 5s infinite;
+    opacity: 0;
+}
+
+    .stars:nth-child(1) {
+        background-position: 50% 50%;
+        animation-delay: 0s;
+    }
+
+    .stars:nth-child(2) {
+        background-position: 20% 60%;
+        animation-delay: 1s;
+    }
+
+    .stars:nth-child(3) {
+        background-position: -20% -30%;
+        animation-delay: 2s;
+    }
+
+    .stars:nth-child(4) {
+        background-position: 40% -80%;
+        animation-delay: 3s;
+    }
+
+    .stars:nth-child(5) {
+        background-position: -20% 30%;
+        animation-delay: 4s;
+    }
+
+@keyframes zoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        animation-timing-function: ease-in;
+    }
+
+    85% {
+        opacity: 1;
+        transform: scale(2.8);
+        animation-timing-function: linear;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(3.5);
+    }
+}
+
+/* Demo syles 
+------------------------------------- */
+
+body {
+    background: #000;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin: -1.5em -2.5em;
+    width: 5em;
+    color: #011;
+    font-size: 5em;
+    text-align: center;
+    text-shadow: 0 0 3px #6cf;
+}
+
+    h1:first-line {
+        font-size: 200%;
+    }
